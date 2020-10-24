@@ -1,0 +1,12 @@
+<div class="error" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" *ngIf="error">
+    <mat-icon>error</mat-icon>
+    <span>{{ error?.debugMessage || error?.message }}</span>
+    <span fxFlex></span>
+    <button mat-icon-button (click)="close.emit()" *ngIf="allowClose"><mat-icon>close</mat-icon></button>
+</div>
+<div class="success" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="6px" *ngIf="success">
+    <mat-icon>info</mat-icon>
+    <span>{{ success?.debugMessage || success?.message || "Network or server error." }}</span>
+    <span fxFlex></span>
+    <button mat-icon-button (click)="close.emit()" *ngIf="allowClose"><mat-icon>close</mat-icon></button>
+</div>

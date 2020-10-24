@@ -1,0 +1,45 @@
+
+<div fxFill class="bg-white" fxLayout="column" style="padding-left: 8px; padding-right: 8px;">
+
+  <div class="topbar" fxLayout="row" fxLayoutAlign="start center">
+    <h3 class="color-blue-a700">Menu Detail</h3>
+
+  </div>
+
+  <div class="details" fxLayout="row" fxFlex>
+
+    <div fxLayout="column" style="margin-right: 8px;">
+      <div class="bg-blue-grey-200 first-letter" fxLayout="row" fxLayoutAlign="center center"><span class="color-white">{{ lab?.name | slice:0:1 }}</span></div>
+    </div>
+
+    <div fxLayout="column" fxFlex fxLayoutGap="8px">
+
+      <span class="color-blue-grey-800 name">{{ lab?.name }}</span>
+      <span class="color-blue-grey-500 description">{{ lab?.description }}</span>
+
+
+      <div style="height: 250px;" *ngIf="lab.id==1">
+        <app-product-list></app-product-list>
+      </div>
+
+      <div style="height: 250px;" *ngIf="lab.id==2">
+        <app-transactions></app-transactions>
+      </div>
+
+      <div style="height: 250px;" *ngIf="lab.id==3">
+        <app-purchases></app-purchases>
+      </div>
+
+      <div style="height: 250px;" *ngIf="lab.id==4">
+        <app-requisition-list></app-requisition-list>
+      </div>
+
+      <div style="height: 250px;" *ngIf="lab.id==5">
+        <app-warehouse></app-warehouse>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

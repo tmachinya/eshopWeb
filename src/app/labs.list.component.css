@@ -1,0 +1,48 @@
+:host {
+    height: 100%;
+    width: 100%;
+}
+
+.search {
+  position: relative;
+  height: 56px;
+  padding: 24px 12px 24px 24px;
+}
+
+.search input {
+  width: calc(100% - 24px);
+  line-height: 36px;
+  background: none;
+  border: none;
+  outline: none;
+  padding-left: 18px;
+  padding-right: 18px;
+  font-size: 14px;
+}
+
+.search-input {
+  outline: none;
+}
+
+.search-hint {
+  padding-left: 8px;
+}
+
+.note {
+  font-size: 14px;
+}
+
+.container {
+  position: relative;
+}
+
+.add-lab-fab-container {
+  padding: 12px;
+  position: absolute;
+  bottom: 0;
+  right: -40px;
+}
+
+.adding-job-active {
+  display: none;
+}

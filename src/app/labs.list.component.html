@@ -1,0 +1,77 @@
+<div fxFill fxLayout="column" class="container">
+
+  <div class="search" fxLayout="row" fxLayoutAlign="start center">
+    <div><mat-icon class="color-blue-grey-500">search</mat-icon></div>
+    <div class="search-input" fxFlex><input [(ngModel)]="searchText" type="text" placeholder="Search..." /></div>
+    <div>
+      <button mat-button mat-icon-button color="warn" [matMenuTriggerFor]="filterMenu">
+        <mat-icon>filter_list</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxFlex>
+
+    <mat-nav-list fxFlex *ngIf="buffer?.length" fxLayout="column">
+
+      <virtual-scroller [items]="buffer"
+                      (update)="viewPortItems = $event"
+                      (change)="onListChange($event)" fxFlex>
+
+        <mat-list-item *ngFor="let lab of viewPortItems"
+                       (click)="selectItem(lab)"
+                       [ngClass]="{ 'bg-white' : isSelected(lab) }">
+
+          <mat-icon matListIcon
+                    [ngClass]="{ 'color-blue-a700' : isSelected(lab), 'color-amber-500' : !isSelected(lab) }">
+              receipt
+          </mat-icon>
+          <h4 mat-line class="color-blue-grey-800">{{ lab.name }}</h4>
+          <p mat-line class="color-blue-grey-500">{{ lab.description || "..." }}</p>
+
+        </mat-list-item>
+
+      </virtual-scroller>
+
+    </mat-nav-list>
+
+    <div *ngIf="!buffer?.length && !loading" fxLayout="column" fxLayoutAlign="center center" fxFlex fxLayoutGap="12px">
+
+        <mat-icon class="color-amber-500" style="font-size: 48px; height: 48px">warning</mat-icon>
+        <span class="color-blue-grey-300 note">No labs found in database.</span>
+
+        <button mat-button mat-flat-button color="primary" routerLink="/dashboard/labs/add">
+            <mat-icon>add</mat-icon>
+            Add New Lab
+        </button>
+
+    </div>
+
+    <div *ngIf="loading" fxLayout="column" fxLayoutAlign="center center">
+
+        <span class="color-blue-grey-500 note">Loading...</span>
+
+    </div>
+
+  </div>
+
+  <div class="add-lab-fab-container">
+    <button mat-fab matTooltip="Add New Lab" routerLink="/dashboard/eis/labs/add" routerLinkActive="adding-lab-active"><mat-icon>add</mat-icon></button>
+  </div>
+
+</div>
+
+<mat-menu #filterMenu="matMenu" [overlapTrigger]="false">
+  <button mat-menu-item (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+    <span>Refresh</span>
+  </button>
+  <button mat-menu-item (click)="onSearch()">
+    <mat-icon>search</mat-icon>
+    <span>Advanced Search</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>insert_chart</mat-icon>
+    <span>Reports</span>
+  </button>
+</mat-menu>

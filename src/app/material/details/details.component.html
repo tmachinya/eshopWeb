@@ -1,0 +1,53 @@
+
+<div class="container pr-5 pl-5 pt-5" id="content">
+  <div class="row">
+    <div class="col-4 pb-3">
+      <button type="button" class="btn btn-outline-primary">
+        Requisition Number <span class="badge badge-light">{{infor['req']}}</span>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-body">
+      <table  class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th class="title-column">Requisition Number</th>
+          <th class="title-column">Description</th>
+          <th class="title-column">Quantity</th>
+          <th class="title-column">Department</th>
+          <th class="title-column">Status</th>
+          <th class="title-column">Edit</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let u of infor">
+          <td class="row-left title">{{u.req}}</td>
+          <td class="row-mid title">{{u.code}}</td>
+          <td class="row-mid title">{{u.quantity}}</td>
+          <td class="row-mid title">{{u.department}}</td>
+          <td class="row-mid title">{{u.status}}</td>
+          <td>
+            <button  mat-stroked-button
+                     color="primary"
+                     (click)="edit(u)">
+              <mat-icon>delete</mat-icon>Edit
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="card-body text-right">
+      <!--        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+      <button class="btn btn-primary mr-4" (click)="hod()">Approve</button>
+    </div>
+  </div>
+</div>
+<div class="container pr-5 pl-5 pt-2">
+  <div class="row">
+  </div>
+</div>
+
+

@@ -1,0 +1,43 @@
+
+<button (click)="getSelectedRows()"
+
+        color="primary"
+        mat-stroked-button>
+  <mat-icon>info</mat-icon>get selected data
+</button>
+
+<button  mat-stroked-button
+         color="primary"
+         class="left-button"
+         (click)="exportAsXLSX()">
+  <mat-icon>get_app</mat-icon>Excel
+</button>
+
+
+<!--<input type="text" placeholder="filter" (keyup)="quickSearch()" [(ngModel)]="searchValue">-->
+<mat-form-field class="search-form-field left" floatLabel="never" >
+  <input matInput
+         placeholder="Search"
+         (keyup)="quickSearch()" [(ngModel)]="searchValue"
+         autocomplete="off"
+  >
+</mat-form-field>
+
+<ag-grid-angular
+  #logGrid
+  style="height: 150%;"
+  class="ag-theme-balham"
+  (gridReady)="onGridReady($event)"
+  [columnDefs]="columnDefs"
+  [enableSorting]="true"
+  [enableFilter]="true"
+  [floatingFilter]="true"
+  [animateRows]="true"
+  [pagination]="true"
+  [paginationPageSize]="10"
+  [enableColResize]="true"
+  [rowDragManaged]="true"
+  [sortingOrder]="sortingOrder"
+  rowSelection="multiple"
+>
+</ag-grid-angular>

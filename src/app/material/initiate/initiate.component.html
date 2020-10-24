@@ -1,0 +1,56 @@
+<mat-card-header>
+  <button style="margin-left: 25px" mat-raised-button (click)="view()" color="primary">View Pending Requests</button>
+</mat-card-header>
+
+<mat-card>
+<div fxLayout="row" fxFill>
+  <div fxLayout="column" style="width: 300px">
+    <mat-card-header>
+      <h3 class="color-blue-a700 current-page" style="padding-left: 24px;">Placing Requisition</h3>
+    </mat-card-header>
+
+    <div style="margin-left: 24px; margin-right: 30px">
+      <form [formGroup]="service.formInitiator"  fxLayout="column" (submit)="onSubmit()">
+        <mat-form-field>
+          <input formControlName="req" readonly value="{{reqnumber}}" matInput placeholder="Requisition Number">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="code" placeholder="Product Name" >
+            <mat-option>None</mat-option>
+            <ng-container *ngFor="let product of products">
+              <mat-option value="{{product.code}}">{{product.description}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="quantity" matInput placeholder="Quantity">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+          <input formControlName="status" hidden matInput placeholder="Status">
+        <mat-form-field>
+          <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="by" readonly value="{{nani}}" matInput placeholder="By">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="department" readonly value="{{depart}}" matInput placeholder="Department">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutGap="12px">
+          <span fxFlex></span>
+          <button mat-raised-button color="primary">Add Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div fxLayout="row" fxFlex>
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+</mat-card>

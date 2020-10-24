@@ -1,0 +1,31 @@
+<div fxFill fxLayout="column">
+
+  <div class="menu" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px" style="padding-top: 8px;">
+
+<!--    <div class="logo"><img src="./assets/logo.png" height="96" /></div>-->
+<!--    <h2>ZETDC GIS V2</h2>-->
+  </div>
+
+  <div fxFlex fxLayoutAlign="center center" fxLayout="row" fxLayoutGap="24px">
+
+    <div fxFlex="50" fxLayout="row" fxLayoutGap="12px">
+
+      <div  fxLayout="row"><img src="assets/sangana.png" height="400" /></div>
+      <div fxFlex fxLayout="column">
+        <h1 style="font-size: 48px;">Welcome to</h1>
+        <h1 style="font-size: 48px;">E-Inventory</h1>
+        <h1 style="font-size: 48px;">Sangana</h1>
+      </div>
+    </div>
+
+    <app-auth (onAuthenticated)="onAuthenticated($event)"></app-auth>
+
+  </div>
+
+  <div class="menu" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px" style="font-size: 12px">
+
+    <span style="padding-right: 24px">&copy; Copyrights Sangana 2020</span>
+
+  </div>
+
+</div>

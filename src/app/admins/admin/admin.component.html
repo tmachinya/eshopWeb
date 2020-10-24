@@ -1,0 +1,43 @@
+<mat-toolbar>
+  <span>Modify User</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"> <mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+
+<mat-grid-list cols="2" rowHeight="300px">
+  <mat-grid-tile>
+    <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+      <div *ngFor="let data of roles; let i=index" class="mat-card-content" style="margin-top: 2%">
+        <label>
+          <input  type="checkbox" [checked]="checkRole(data.value)" [value]="data.id" (change)="onCheckboxChange($event)" />
+          {{data.name}}
+        </label>
+      </div>
+      <!--  <input type="submit" value="Submit">-->
+      <button  style="margin-top: 3%"
+               type="submit"
+               class="mat-raised-button mat-primary"
+               color="primary">Update User
+      </button>
+
+    </form>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-header>
+        <h3>
+          {{zita}}
+        </h3>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          These roles determine how the above user will be granted access to specific sections of this application. Giving the user all roles equates to administrators of the entire application.
+        </p>
+      </mat-card-content>
+
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+

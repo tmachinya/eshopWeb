@@ -1,0 +1,47 @@
+<div fxLayout="row" fxFill>
+
+  <div fxLayout="column" style="width: 300px">
+    <h3 class="color-grey-700 current-page" style="padding-left: 24px;">Search for a report</h3>
+
+    <div style="margin-left: 24px; margin-right: 30px">
+      <form [formGroup]="service.formSearch"  fxLayout="column" (submit)="onSubmit()">
+        <mat-form-field>
+          <mat-select formControlName="category" placeholder="Category" >
+            <mat-option>None</mat-option>
+            <mat-option value="everything">everything</mat-option>
+            <ng-container *ngFor="let cat of categories">
+              <mat-option value="{{cat.name}}">{{cat.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select formControlName="department" placeholder="Department" >
+            <mat-option>None</mat-option>
+            <ng-container *ngFor="let department of departments">
+              <mat-option value="{{department.name}}">{{department.name}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="start" matInput [matDatepicker]="picker" placeholder="From">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="end" matInput [matDatepicker]="picker1" placeholder="To">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutGap="12px">
+          <span fxFlex></span>
+          <button mat-raised-button color="primary">Filter</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+<mat-toolbar>
+  <span>{{service.formProduct.controls['id'].value? "Modify Item": "New Item"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"> <mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="service.formProduct" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <input formControlName="code" matInput placeholder="Product Code*">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Product Name*">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="description" matInput placeholder="Description">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+               <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="service.formProduct.invalid">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

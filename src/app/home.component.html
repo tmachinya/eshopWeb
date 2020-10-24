@@ -1,0 +1,109 @@
+<mat-drawer-container fxFill>
+
+  <mat-drawer mode="side" [opened]="true">
+
+    <div fxFill fxLayout="column" class="sidebar">
+
+
+      <div fxLayout="column" fxFlex>
+        <div class="sidebar-header" style="padding-left: 16px; margin-top: 10%; margin-bottom: 5%" fxLayoutAlign="start center" fxLayoutGap="12px" fxLayout="row">
+          <img height="36" src="../assets/sangana.png" />
+          <div fxLayout="column" fxFlex fxLayoutAlign="center start">
+            <h4 style="padding: 0; margin: 0;">E Tuckshop</h4>
+            <span class="color-grey-500" style="font-size: 10px">Version 1.0</span>
+          </div>
+        </div>
+
+        <mat-nav-list dense class="sidebar-section-1">
+
+
+          <h4 matSubheader>Main Menu</h4>
+
+          <a mat-list-item routerLink="/dashboard" routerLinkActive="active-menu-item" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon matListIcon class="color-brown-500">home</mat-icon>
+            <h3 matLine>Dashboard</h3>
+          </a>
+
+          <a mat-list-item routerLink="/dashboard/labs" routerLinkActive="active-menu-item" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon matListIcon class="color-brown-500">local_atm</mat-icon>
+            <h3 matLine>Transactions</h3>
+          </a>
+          <a mat-list-item routerLink="/dashboard/search" routerLinkActive="active-menu-item" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon matListIcon class="color-brown-500">local_atm</mat-icon>
+            <h3 matLine>Report</h3>
+          </a>
+          <a mat-list-item routerLink="/dashboard/initiate" routerLinkActive="active-menu-item" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon matListIcon class="color-brown-500">local_atm</mat-icon>
+            <h3 matLine>Generate Request</h3>
+          </a>
+
+          <div *ngIf="admin">
+            <a mat-list-item routerLink="/dashboard/administration" routerLinkActive="active-menu-item" [routerLinkActiveOptions]="{exact: true}">
+              <mat-icon matListIcon class="color-brown-500">local_library</mat-icon>
+              <h3 matLine>Administration</h3>
+            </a>
+          </div>
+
+          <a mat-list-item routerLink="/dashboard/about" routerLinkActive="active-menu-item" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon matListIcon class="color-brown-500">info</mat-icon>
+            <h3 matLine>About E Tuckshop</h3>
+          </a>
+
+          <h4 matSubheader>Recently Updated</h4>
+
+          <mat-list-item>
+            <mat-icon matListIcon class="color-green-500">info</mat-icon>
+            <h3 matLine>No recent updates</h3>
+          </mat-list-item>
+
+<!--          <mat-list-item>-->
+<!--            <mat-icon matListIcon class="color-green-500">blur_on</mat-icon>-->
+<!--            <button mat-raised-button mat-list-item (click)="generateQR('http://einventory.sanganaafrica.co.zw/public/api/allQR')"> Generate QRCODES </button>-->
+<!--          </mat-list-item>-->
+          <mat-list-item>
+            <mat-icon matListIcon class="color-green-500">blur_on</mat-icon>
+            <button mat-raised-button mat-list-item (click)="generateQR('http://127.0.0.1:8000/api/allQR')"> Generate QRCODES </button>
+          </mat-list-item>
+        </mat-nav-list>
+
+      </div>
+
+
+    </div>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+    <div fxFill fxLayout="column">
+
+      <div class="menu" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
+
+        <span fxFlex></span>
+
+        <span class="session color-blue-grey-500">{{munhu['name']}}</span>
+        <button mat-button mat-icon-button [matMenuTriggerFor]="profileMenu"><mat-icon svgIcon="place_user_online"></mat-icon></button>
+
+      </div>
+
+      <div fxLayout="row" fxFlex>
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>
+
+<mat-menu #profileMenu="matMenu" [overlapTrigger]="false">
+
+  <button mat-menu-item>Notifications</button>
+  <button mat-menu-item>Settings</button>
+  <button mat-menu-item (click)="logout($event)">Log Out</button>
+
+  <mat-divider></mat-divider>
+
+  <button mat-menu-item>Help</button>
+
+</mat-menu>

@@ -1,0 +1,62 @@
+<mat-toolbar>
+  <span>{{service.formProduct.controls['id'].value? "Modify Requisition": "New Requisition"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"> <mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="service.formProduct" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="updated_at">
+        <input type="hidden" formControlName="created_at">
+        <mat-form-field>
+          <input readonly formControlName="code" matInput placeholder="Code">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input readonly formControlName="name" matInput placeholder="Requisition Name*">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input readonly formControlName="status" matInput placeholder="Status">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="comment" matInput placeholder="Comment*">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <input formControlName="status" hidden matInput placeholder="Quantity Approved">
+        <input formControlName="branch" hidden matInput placeholder="Quantity Approved">
+
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="quantity" matInput placeholder="Quantity">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input readonly formControlName="department" matInput placeholder="Department*">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input readonly formControlName="date" matInput [matDatepicker]="picker" placeholder="Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+<!--        <mat-form-field>-->
+          <input hidden formControlName="by" matInput placeholder="Captured By">
+<!--          <mat-error>This is a mandatory field</mat-error>-->
+<!--        </mat-form-field>-->
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="service.formProduct.invalid">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

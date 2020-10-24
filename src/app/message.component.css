@@ -1,0 +1,14 @@
+
+.error, .success {
+    background: #eceff1;
+    padding: 6px;
+    font-size: 14px;
+}
+
+.error{
+    color: var(--red-500);
+}
+
+.success{
+    color: var(--green-500);
+}

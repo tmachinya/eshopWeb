@@ -1,0 +1,49 @@
+<mat-card fxLayout="column" class="login-card">
+
+  <mat-card-content fxLayout="column" fxLayoutGap="12px" fxFill>
+
+    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="6px">
+      <img src="./assets/placeholder-user-offline.svg" height="64" />
+      <span class="color-blue-800" style="font-weight: bold;">System Access</span>
+      <span>Log in to continue.</span>
+    </div>
+
+    <mat-error class="error-pass" [hidden]="!error">{{error}}</mat-error>
+
+    <mat-progress-bar mode="buffer" *ngIf="loading"></mat-progress-bar>
+
+    <form [formGroup]="form" fxFlex fxLayout="column" (submit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input formControlName="email" matInput placeholder="Enter your email">
+        <mat-error>Invalid email address</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
+        <mat-error>Password is required</mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div fxLayout="row" fxLayoutGap="12px">
+        <div>
+          <button mat-button mat-icon-button [matMenuTriggerFor]="menu" color="primary"><mat-icon>settings</mat-icon></button>
+          <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <button mat-menu-item> <mat-icon>feedback</mat-icon> <span>Forgot password</span> </button>
+            <button mat-menu-item> <mat-icon>help</mat-icon> <span>Create Account</span> </button>
+          </mat-menu>
+        </div>
+        <span fxFlex></span>
+        <button mat-raised-button color="primary" [disabled]="!form.valid">Login</button>
+      </div>
+
+    </form>
+
+
+
+  </mat-card-content>
+
+</mat-card>

@@ -1,0 +1,9 @@
+@import  '~bootstrap/dist/css/bootstrap.min.css';
+.table .thead-dark th {
+  color: #fff;
+  background-color: #620000;
+  border-color: #FF8888;
+}
+.selectedRow {
+  background-color: #b3d7ff;
+}

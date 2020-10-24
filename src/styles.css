@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~material-design-icons/iconfont/material-icons.css";
+@import "~font-awesome/css/font-awesome.min.css";
+@import "~@mdi/font/css/materialdesignicons.min.css";
+@import "~leaflet/dist/leaflet.css";
+@import "assets/material.colors.css";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Lato, serif;
+  color: #3e2723;
+}
+
+app-root{
+  width: 100%;
+  height: 100%;
+}
+
+
