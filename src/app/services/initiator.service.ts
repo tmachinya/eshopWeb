@@ -15,7 +15,7 @@ export class InitiatorService {
   formInitiator: FormGroup = new FormGroup({
     code: new FormControl('', Validators.required),
     quantity: new FormControl('', Validators.required),
-    date: new FormControl(''),
+    date: new FormControl(new Date()),
     status: new FormControl('pending'),
     name: new FormControl(''),
     by: new FormControl(localStorage.getItem('username')),
@@ -27,7 +27,7 @@ export class InitiatorService {
     this.formInitiator.setValue({
       code:'',
       quantity:'',
-      date:'',
+      date:new Date(),
       status:'pending',
       req: localStorage.getItem('reqno'),
       name:'',

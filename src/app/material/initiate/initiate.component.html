@@ -28,11 +28,9 @@
           <mat-error>This is a mandatory field</mat-error>
         </mat-form-field>
           <input formControlName="status" hidden matInput placeholder="Status">
-        <mat-form-field>
-          <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+
+          <input hidden formControlName="date" matInput [matDatepicker]="picker" placeholder="Date">
+
         <mat-form-field>
           <input formControlName="by" readonly value="{{nani}}" matInput placeholder="By">
           <mat-error>This is a mandatory field</mat-error>
