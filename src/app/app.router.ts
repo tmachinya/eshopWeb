@@ -8,13 +8,10 @@ import {
 import {LandingComponent} from './landing.component';
 import {NotFoundComponent} from './notfound.component';
 import {HomeComponent} from './home.component';
-import {DashboardComponent} from './dashboard.component';
 import {LabsComponent} from './labs.component';
 import {LabDetailComponent} from './lab-detail.component';
 import {TransactionsComponent} from './material/transactions/transactions.component';
-import {ProductComponent} from './material/products/product/product.component';
 import {ProductListComponent} from './material/products/product-list/product-list.component';
-import {SnapshotComponent} from './material/snapshot/snapshot.component';
 import {CostComponent} from "./material/reports/cost/cost.component";
 import {AdminListComponent} from "./admins/admin-list/admin-list.component";
 import {InitiateComponent} from "./material/initiate/initiate.component";
@@ -60,7 +57,7 @@ const appRoutes: Routes = [
 
 @NgModule({
  imports: [
- RouterModule.forRoot( appRoutes, { enableTracing: true })
+ RouterModule.forRoot( appRoutes, { enableTracing: true , useHash: true})
  ],
  exports: [
   RouterModule
