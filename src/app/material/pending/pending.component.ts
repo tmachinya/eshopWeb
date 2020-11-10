@@ -60,6 +60,7 @@ export class PendingComponent implements OnInit {
   delete(id) {
     if (confirm('Are you sure you want to delete?')) {
       this.Champion.deleteRequisition(id).subscribe();
+      window.location.reload();
     }
   }
 }

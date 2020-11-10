@@ -42,7 +42,7 @@ export class InitiateComponent implements OnInit {
       }
     );
     this.router.navigate(['/dashboard/initiate/1'])
-    this.onClear()
+    // this.onClear()
   }
   onClear() {
     // this.service.formInitiator.reset();
