@@ -17,6 +17,7 @@
         <mat-form-field>
           <mat-select formControlName="department" placeholder="Department" >
             <mat-option>None</mat-option>
+            <mat-option value="all">all departments</mat-option>
             <ng-container *ngFor="let department of departments">
               <mat-option value="{{department.name}}">{{department.name}}</mat-option>
             </ng-container>

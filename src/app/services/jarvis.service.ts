@@ -5,8 +5,8 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class JarvisService {
-  // private baseUrl = 'http://192.167.1.48/backend/eshop/public/api';
-  private baseUrl = 'http://127.0.0.1:8000/api';
+  private baseUrl = 'http://192.167.1.48/backend/eshop/public/api';
+  // private baseUrl = 'http://127.0.0.1:8000/api';
   // private baseUrl = 'http://localhost:8080/eshop/public/api';
   list: any
   constructor(
