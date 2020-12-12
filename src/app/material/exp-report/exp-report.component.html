@@ -1,3 +1,66 @@
-<p>
-  exp-report works!
-</p>
+<div fxFill class="container" fxLayout="column" style="padding-left: 8px; padding-right: 8px;">
+
+  <div class="topbar" fxLayout="row" fxLayoutAlign="start center">
+    <h3 class="color-blue-a700">Cost for all Departments</h3>
+
+  </div>
+
+  <div class="details" fxLayout="row" fxFlex>
+
+    <div fxLayout="column" style="margin-right: 8px;">
+      <div class="bg-blue-grey-200 first-letter" fxLayout="row" fxLayoutAlign="center center"><span class="color-white">{{ 'Costs' | slice:0:1 }}</span></div>
+    </div>
+
+    <div fxLayout="column" fxFlex fxLayoutGap="8px">
+      <span class="color-blue-grey-800 name">ALl Departments Costs</span>
+      <span class="color-blue-grey-500 description">This is the total expenditure incurred by all departments</span>
+      <button  mat-stroked-button
+               color="warn"
+               class="left-button"
+               style="width : 20em"
+               (click)="calculation()">
+        <mat-icon>get_app</mat-icon>Excel
+      </button>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+          <tr style="border-color: #0b2e13; background-color: #0e2e42;color:#fff ">
+            <th scope="col">Department</th>
+            <th scope="col">Commercial</th>
+            <th scope="col">Computer</th>
+            <th scope="col">Groceries</th>
+            <th scope="col">Motor</th>
+            <th scope="col">Printed</th>
+            <th scope="col">Transport</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let cost of costs">
+          <tr>
+            <td>{{cost.department}}</td>
+            <td>{{cost.Commercial}}</td>
+            <td>{{cost.Computer}}</td>
+            <td>{{cost.Groceries}}</td>
+            <td>{{cost.Motor}}</td>
+            <td>{{cost.Printed}}</td>
+            <td>{{cost.Transport}}</td>
+          </tr>
+          </tbody>
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+          </thead>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpErrorResponse} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {JarvisService} from "../../../services/jarvis.service";
 import {ExcelService} from "../../../services/excel.service";
@@ -28,8 +27,7 @@ export class CostComponent implements OnInit {
       this.infor = JSON.parse(params.data)
       this.Jarvis.section(this.infor).subscribe(
         data => {
-          this.costs = data as string []
-          console.log(this.costs)
+          this.costs = data as string [];
           this.count= this.costs.length;
           this.costs.forEach(
             (key:any, val:any)=>{
@@ -37,8 +35,6 @@ export class CostComponent implements OnInit {
               const quantity = key['quantity'];
               const  figint= parseFloat(price);
               const  figint1= parseFloat(quantity);
-              // this.var1 = figint
-              // this.var2 = figint*figint1
               this.var1 = this.var1+(figint*figint1)
             }
           )
@@ -49,6 +45,6 @@ export class CostComponent implements OnInit {
   }
 
   calculation() {
-
+    this.excel.exportAsExcelFile(this.costs, 'Department Costs');
   }
 }

@@ -15,12 +15,19 @@
       <span class="color-blue-grey-800 name">Departmental Costs</span>
       <span class="color-blue-grey-500 description">This is the total expenditure incured by the filtered center and department</span>
       <button  mat-stroked-button
+               color="warn"
+               class="left-button"
+               style="width : 20em"
+               (click)="calculation()">
+        <mat-icon>get_app</mat-icon>Excel
+      </button>
+      <button  mat-stroked-button
                color="primary"
                style="width : 20em"
-               class="left-button"
-               (click)="calculation()">
+               class="left-button">
         Total Cost: <mat-icon> attach_money</mat-icon> {{var1}}
       </button>
+
 
       <div class="table-responsive">
         <table class="table">

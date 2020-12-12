@@ -40,10 +40,14 @@ export class SearchComponent implements OnInit {
 
   onSubmit()
   {
-    console.log(this.service.formSearch.value);
     let data: any = this.service.formSearch.value
-    this.router.navigate(['/dashboard/cost'], {queryParams: {data: JSON.stringify(data)}, skipLocationChange: true})
-    this.service.formSearch.reset();
+    if(this.service.formSearch.value.category=='everything'){
+      this.router.navigate(['/dashboard/master'], {queryParams: {data: JSON.stringify(data)}, skipLocationChange: true})
+    }
+    else{
+      this.router.navigate(['/dashboard/cost'], {queryParams: {data: JSON.stringify(data)}, skipLocationChange: true})
+      this.service.formSearch.reset();
+    }
   }
 
 }

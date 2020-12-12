@@ -21,6 +21,7 @@ import {WarehouseApprovalComponent} from "./material/warehouse-approval/warehous
 import {SearchComponent} from "./material/search/search.component";
 import {ExpendituresearchedComponent} from "./material/expendituresearched/expendituresearched.component";
 import {DashReportComponent} from "./material/dash-report/dash-report.component";
+import {ExpReportComponent} from "./material/exp-report/exp-report.component";
 
 
 const appRoutes: Routes = [
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
    children: [
      { path: '', component: DashReportComponent },
      { path: 'transactions', component: TransactionsComponent },
+     { path: 'master', component: ExpReportComponent },
      { path: 'product', component: ProductListComponent },
      { path: 'cost', component: CostComponent },
      { path: 'administration', component: AdminListComponent },
