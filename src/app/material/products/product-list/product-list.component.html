@@ -62,6 +62,13 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.price}}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="receive">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Receive</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button color="primary" (click)="receive(row)"><mat-icon>payment</mat-icon></button>
+<!--        <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>-->
+      </mat-cell>
+    </ng-container>
 
 
     <ng-container matColumnDef="actions">

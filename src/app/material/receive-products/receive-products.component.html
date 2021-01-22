@@ -1,0 +1,36 @@
+<mat-toolbar>
+  <span>{{"Receive Product"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1"> <mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="service.formReceipt" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="code" readonly value="{{product}}" matInput placeholder="Product Code*">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+          <input formControlName="price" hidden matInput placeholder="">
+        <input formControlName="date" hidden matInput placeholder="">
+        <mat-form-field>
+          <input formControlName="quantity" matInput placeholder="Quantity">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="price" matInput placeholder="Price">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="service.formReceipt.invalid">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+

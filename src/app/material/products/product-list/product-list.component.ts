@@ -8,6 +8,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {HttpErrorResponse} from '@angular/common/http';
 import {ProductComponent} from '../product/product.component';
+import {ReceiveProductsComponent} from "../../receive-products/receive-products.component";
 
 @Component({
   selector: 'app-product-list',
@@ -17,7 +18,7 @@ import {ProductComponent} from '../product/product.component';
 export class ProductListComponent implements OnInit {
   product_detail: string [];
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['code', 'name', 'description','actions'];
+  displayedColumns: string[] = ['code', 'name', 'description','receive','actions'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   searchKey: string;
@@ -88,5 +89,13 @@ export class ProductListComponent implements OnInit {
   }
 
 
-
+  receive(row) {
+    this.service.populateForm(row);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '50%';
+    dialogConfig.data = row;
+    this.dialog.open(ReceiveProductsComponent, dialogConfig);
+  }
 }

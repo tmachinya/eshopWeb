@@ -41,6 +41,7 @@ import { ExpReportComponent } from './material/exp-report/exp-report.component';
 import { ExpendituresearchedComponent } from './material/expendituresearched/expendituresearched.component';
 import { EditQuantityComponent } from './material/dialogues/edit-quantity/edit-quantity.component';
 import { DashReportComponent } from './material/dash-report/dash-report.component';
+import { ReceiveProductsComponent } from './material/receive-products/receive-products.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { DashReportComponent } from './material/dash-report/dash-report.componen
     ExpReportComponent,
     ExpendituresearchedComponent,
     EditQuantityComponent,
-    DashReportComponent
+    DashReportComponent,
+    ReceiveProductsComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -85,7 +87,7 @@ import { DashReportComponent } from './material/dash-report/dash-report.componen
   ],
   providers: [JarvisService, ExcelService, ProductService, RequisitionService],
   bootstrap: [AppComponent],
-  entryComponents: [ProductComponent, RequisitionComponent, SearchComponent, AdminComponent, EditQuantityComponent],
+  entryComponents: [ProductComponent, RequisitionComponent, SearchComponent, AdminComponent, EditQuantityComponent, ReceiveProductsComponent],
 })
 export class AppModule {
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {

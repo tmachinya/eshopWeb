@@ -34,6 +34,10 @@ export class JarvisService {
   {
     return this.http.get(`${this.baseUrl}/purchase`)
   }
+  addPurchase(product)
+  {
+    return this.http.post(`${this.baseUrl}/purchase`, product)
+  }
 
 // *********************************end of Purchases***********************************//
 
